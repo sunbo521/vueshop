@@ -36,7 +36,7 @@ export default {
       },
       loginForm: {
         username: 'admin',
-        password: '123456t'
+        password: '123456'
       }
     }
   },
