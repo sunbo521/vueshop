@@ -19,6 +19,7 @@
           text-color="#fff"
           active-text-color="#409EFF"
           :collapse="isshow"
+          :router="true"
         >
           <el-submenu
             :index="item.id + ''"
@@ -30,11 +31,7 @@
               <i :class="'iconfont icon-' + iconList[k]"></i>
               <span>{{ item.authName }}</span>
             </template>
-            <el-menu-item
-              :index="item.id - item2.id"
-              v-for="item2 in item.children"
-              :key="item2.id"
-            >
+            <el-menu-item :index="item2.path" v-for="item2 in item.children" :key="item2.id">
               <i class="iconfont icon-leimupinleifenleileibie2"></i>
               {{ item2.authName }}
             </el-menu-item>
@@ -72,7 +69,7 @@ export default {
     },
     async getMenuList() {
       const { data: dt } = await this.$http.get('menus')
-      console.log(dt)
+      // console.log(dt)
       if (dt.meta.status !== 200) {
         return this.$message.error(dt.meta.msg)
       }
@@ -110,7 +107,9 @@ export default {
     user-select: none;
   }
   .el-header {
-    background-color: #373d41;
+    background: url(../assets/img/000.jpeg);
+    background-size: 100%;
+    background-position: 100px 0;
     color: #333;
     line-height: 60px;
     display: flex;
@@ -136,13 +135,19 @@ export default {
   }
   .el-aside {
     height: 100%;
-    background-color: #333744;
+    // background-color: #333744;
+    background: url(../assets/img/000.jpeg);
+    background-size:1900px 100%;
+    background-position:0 -100px;
     i {
       margin-right: 10px;
     }
   }
   .el-main {
-    background-color: #eaedf1;
+    // background-color: #eaedf1;
+    background: url(../assets/img/000.jpeg);
+    background-size: 100%;
+    background-position:0 -53px;
   }
 }
 </style>

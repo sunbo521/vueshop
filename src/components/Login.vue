@@ -52,7 +52,7 @@ export default {
           // 用户名，密码真实性校验(axios带着去服务器端完成)
           const { data: dt } = await this.$http.post('login', this.loginForm)
           // 用户名，密码错误提示
-          if (dt.meta.status != 200) {
+          if (dt.meta.status !== 200) {
             // 提示错误信息
             return this.$message({
               type: 'error',

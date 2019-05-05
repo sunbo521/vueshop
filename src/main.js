@@ -16,14 +16,16 @@ Vue.use(ElementUI)
 axios.defaults.baseURL = 'http://127.0.0.1:11333/api/private/v1/'
 
 // axios请求拦截器
-axios.interceptors.request.use(function (config) {
-  var token = window.sessionStorage.getItem('token')
-  config.headers.Authorization = token
-  return config;
-}, function (error) {
-  return Promise.reject(error);
-});
-
+axios.interceptors.request.use(
+  function(config) {
+    var token = window.sessionStorage.getItem('token')
+    config.headers.Authorization = token
+    return config
+  },
+  function(error) {
+    return Promise.reject(error)
+  }
+)
 
 Vue.prototype.$http = axios
 // Vue.config.productionTip = false
